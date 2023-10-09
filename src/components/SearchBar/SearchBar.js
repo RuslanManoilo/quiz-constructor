@@ -1,16 +1,18 @@
+import { FilterInput, FilterSelect, Wrapper } from "./SearchBar.styled";
+
 const SearchBar = ({ 
     filters: { topic, level },
     onChangeFilter
 }) => {
     return (
-        <div>
-            <input 
+        <Wrapper>
+            <FilterInput 
                 onChange={evt => onChangeFilter('topic', evt.target.value)}
                 value={topic} 
                 type="text" 
                 placeholder="Filter by topic..."
             />
-            <select
+            <FilterSelect
                 onChange={evt => onChangeFilter('level', evt.target.value)}
                 value={level}
             >
@@ -18,8 +20,8 @@ const SearchBar = ({
                 <option value="beginner">Beginner</option>
                 <option value="intermediate">Intermediate</option>
                 <option value="advanced">Advanced</option>
-            </select>
-        </div>
+            </FilterSelect>
+        </Wrapper>
     )
 }
 

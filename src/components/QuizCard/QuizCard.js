@@ -1,7 +1,9 @@
+import { ItemTopic } from "./QuizCard.styled";
+
 const QuizCard = ({quiz: {id, topic, level, time, questions}, onDelete}) => {
     return (
         <div>
-            <h2>{topic}</h2>
+            <ItemTopic>{topic}</ItemTopic>
             <div>
                 <p>Level: {level}</p>
                 <p>Time: {time} min</p>

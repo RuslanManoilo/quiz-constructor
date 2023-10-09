@@ -1,9 +1,10 @@
 import { Component } from "react";
+import { nanoid } from "nanoid";
+import { Container } from "./GlobalStyle";
 import QuizList from "./QuizList/QuizList";
 import initialQuizItems from "../data.json";
 import SearchBar from "./SearchBar/SearchBar";
 import QuizForm from "./QuizForm/QuizForm";
-import { nanoid } from "nanoid";
 
 class App extends Component {
   state = {
@@ -54,7 +55,7 @@ class App extends Component {
     const visibleItems = this.getVisibleItems();
 
     return (
-      <div>
+      <Container>
         <QuizForm onAdd={this.addQuiz} />
         <SearchBar 
           filters={filters}           
@@ -64,7 +65,7 @@ class App extends Component {
           items={visibleItems}         
           onDelete={this.deleteQuizItem}
         />
-      </div>
+      </Container>
     )
   };
 };

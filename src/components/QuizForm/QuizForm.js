@@ -1,5 +1,6 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { ErrMessage, FormBtn, FormInput, FormLabel, FormWrapper } from './QuizForm.styled';
 
 const quizSchema = Yup.object().shape({
     topic: Yup.string()
@@ -32,37 +33,37 @@ const QuizForm = ({onAdd}) => {
                 actions.resetForm();
             }}
         >
-            <Form>
-                <label>
+            <FormWrapper>
+                <FormLabel>
                     Topic
-                    <Field name="topic" />
-                    <ErrorMessage name='topic' />
-                </label>
+                    <FormInput name="topic" />
+                    <ErrMessage  name='topic' component="div" />
+                </FormLabel>
                 
-                <label>
+                <FormLabel>
                     Time
-                    <Field name="time" type="number" />
-                    <ErrorMessage name='time' />
-                </label>
+                    <FormInput name="time" type="number" />
+                    <ErrMessage name='time' component="div" />
+                </FormLabel>
                 
-                <label>
+                <FormLabel>
                     Questions
-                    <Field name="questions" type="number" />
-                    <ErrorMessage name='questions' />
-                </label>
+                    <FormInput name="questions" type="number" />
+                    <ErrMessage name='questions' component="div" />
+                </FormLabel>
 
-                <label>
+                <FormLabel>
                     Level
-                    <Field as="select" name="level">
+                    <FormInput as="select" name="level">
                         <option value="beginner">Beginner</option>
                         <option value="intermediate">Intermediate</option>
                         <option value="advanced">Advanced</option>
-                    </Field>
-                    <ErrorMessage name='level' />
-                </label>
+                    </FormInput>
+                    <ErrMessage name='level' component="div" />
+                </FormLabel>
 
-                <button type="submit">Add Quiz</button>
-            </Form>
+                <FormBtn type="submit">Add Quiz</FormBtn>
+            </FormWrapper>
         </Formik>
     );
 };
