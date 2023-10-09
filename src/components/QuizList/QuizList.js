@@ -1,14 +1,14 @@
 import QuizCard from "components/QuizCard/QuizCard";
-import { ListItem } from "./QuizList.styled";
+import { ListItems, QuizItem } from "./QuizList.styled";
 
 const QuizList = ({ items, onDelete }) => {
     return (
-        <ul>
+        <ListItems>
             {items.map(item =>
-                <ListItem key={item.id}>
+                <QuizItem key={item.id}>
                     <QuizCard quiz={item} onDelete={onDelete} />
-                </ListItem>)}
-        </ul>
+                </QuizItem>)}
+        </ListItems>
     );
 };
 

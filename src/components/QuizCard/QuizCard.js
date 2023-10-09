@@ -1,18 +1,19 @@
-import { ItemTopic } from "./QuizCard.styled";
+import { CardBtn, CardInfo, CardList, CardTopic } from "./QuizCard.styled";
+import { ImBin } from "react-icons/im";
 
-const QuizCard = ({quiz: {id, topic, level, time, questions}, onDelete}) => {
+const QuizCard = ({ quiz: { id, topic, level, time, questions }, onDelete }) => {
     return (
-        <div>
-            <ItemTopic>{topic}</ItemTopic>
-            <div>
-                <p>Level: {level}</p>
-                <p>Time: {time} min</p>
-                <p>Questions: {questions}</p>
-            </div>
-            <button onClick={() => onDelete(id)}>Delete</button>
-        </div>
-    )
-}
+        <>
+            <CardTopic>{topic}</CardTopic>
+            <CardList>
+                <CardInfo>Level: {level}</CardInfo>
+                <CardInfo>Time: {time} min</CardInfo>
+                <CardInfo>Questions: {questions}</CardInfo>
+            </CardList>
+            <CardBtn onClick={() => onDelete(id)}><ImBin/></CardBtn>
+        </>
+    );
+};
 
 
 export default QuizCard;

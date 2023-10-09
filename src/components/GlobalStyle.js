@@ -7,8 +7,8 @@ export const Container = styled.div`
     margin: 0 auto;
     margin-top: 20px;
     padding: 20px;
-    border-radius: 8px;
-    background-color: #fff;
+    border-radius: ${p => p.theme.radii.md};
+    background-color: ${p => p.theme.colors.backgroundLight};
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
