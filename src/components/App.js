@@ -15,6 +15,31 @@ class App extends Component {
     },
   };
 
+  componentDidMount() {
+    const savedFilters = localStorage.getItem('quiz-filters');
+    if (savedFilters !== null) {
+      this.setState({
+        filters: JSON.parse(savedFilters)
+      })
+    }
+  };
+
+  componentDidUpdate(prevProp, prevState) {
+    console.log(prevState);
+    if (prevState.filters !== this.state.filters) {
+      localStorage.setItem('quiz-filters', JSON.stringify(this.state.filters));
+    }
+  };
+
+  resetFilters = () => {
+    this.setState({
+      filters: {
+        topic: "",
+        level: "all"
+      }
+    })
+  };
+
   addQuiz = (newQuiz) => {
     this.setState(prevState => ({
       quizItems: [...prevState.quizItems, { ...newQuiz, id: nanoid() }]
@@ -59,7 +84,8 @@ class App extends Component {
         <QuizForm onAdd={this.addQuiz} />
         <SearchBar 
           filters={filters}           
-          onChangeFilter={this.changeFilter}         
+          onChangeFilter={this.changeFilter} 
+          onResetFilters={this.resetFilters}
         />
         <QuizList
           items={visibleItems}         

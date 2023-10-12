@@ -1,15 +1,16 @@
-import { FilterInput, FilterSelect, Wrapper } from "./SearchBar.styled";
+import { FilterInput, FilterSelect, ResetBtn, Wrapper } from "./SearchBar.styled";
 
-const SearchBar = ({ 
+const SearchBar = ({
     filters: { topic, level },
-    onChangeFilter
+    onChangeFilter,
+    onResetFilters
 }) => {
     return (
         <Wrapper>
-            <FilterInput 
+            <FilterInput
                 onChange={evt => onChangeFilter('topic', evt.target.value)}
-                value={topic} 
-                type="text" 
+                value={topic}
+                type="text"
                 placeholder="Filter by topic..."
             />
             <FilterSelect
@@ -21,9 +22,10 @@ const SearchBar = ({
                 <option value="intermediate">Intermediate</option>
                 <option value="advanced">Advanced</option>
             </FilterSelect>
+            <ResetBtn onClick={onResetFilters}>Reset Filters</ResetBtn>
         </Wrapper>
     )
-}
+};
 
 
 export default SearchBar;

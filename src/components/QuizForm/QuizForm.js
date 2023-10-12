@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { ErrMessage, FormBtn, FormInput, FormLabel, FormWrapper } from './QuizForm.styled';
+import { ErrMessage, FormBtn, FormInput, FormLabel, FormWrapper, TextContent } from './QuizForm.styled';
 
 const quizSchema = Yup.object().shape({
     topic: Yup.string()
@@ -18,7 +18,7 @@ const quizSchema = Yup.object().shape({
         .required("This field is required!"),
 });
 
-const QuizForm = ({onAdd}) => {
+const QuizForm = ({ onAdd }) => {
     return (
         <Formik
             initialValues={{
@@ -35,21 +35,27 @@ const QuizForm = ({onAdd}) => {
         >
             <FormWrapper>
                 <FormLabel>
-                    Topic
+                    <TextContent>
+                        <p>Topic</p>
+                        <ErrMessage name='topic' component="div" />
+                    </TextContent>
                     <FormInput name="topic" />
-                    <ErrMessage  name='topic' component="div" />
                 </FormLabel>
                 
                 <FormLabel>
-                    Time
+                    <TextContent>
+                        <p>Time</p>
+                        <ErrMessage name='time' component="div" />
+                    </TextContent>
                     <FormInput name="time" type="number" />
-                    <ErrMessage name='time' component="div" />
                 </FormLabel>
                 
                 <FormLabel>
-                    Questions
+                    <TextContent>
+                        <p>Questions</p>
+                        <ErrMessage name='questions' component="div" />
+                    </TextContent>
                     <FormInput name="questions" type="number" />
-                    <ErrMessage name='questions' component="div" />
                 </FormLabel>
 
                 <FormLabel>

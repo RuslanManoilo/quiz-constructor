@@ -16,6 +16,11 @@ export const FormLabel = styled.label`
   color: ${p => p.theme.colors.textWhite};
 `;
 
+export const TextContent = styled.div`
+  display: flex;
+  gap: ${p => p.theme.spacing(4)};
+`;
+
 export const FormInput = styled(Field)`
   width: 100%;
   padding: 10px;

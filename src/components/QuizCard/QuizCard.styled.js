@@ -18,8 +18,7 @@ export const CardInfo = styled.li`
 `;
 
 export const CardBtn = styled.button`
-  font-size: 16px;
-  padding: 10px 20px;
+  padding: 10px 15px;
   margin-top: 8px;
   border: none;
   border-radius: ${p => p.theme.radii.sm};

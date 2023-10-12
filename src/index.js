@@ -14,6 +14,7 @@ const theme = {
     primary: "#7289da",
     primaryHover: "#677bc4",
     error: "#ff6b6b",
+    red: "#FF2828"
   },
 
   radii: {
