@@ -25,7 +25,6 @@ class App extends Component {
   };
 
   componentDidUpdate(prevProp, prevState) {
-    console.log(prevState);
     if (prevState.filters !== this.state.filters) {
       localStorage.setItem('quiz-filters', JSON.stringify(this.state.filters));
     }
